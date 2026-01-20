@@ -12,3 +12,41 @@ html, body {
     margin-top: auto;
   }
   
+  section {
+    scroll-margin-top: 70px; /* height of sticky navbar */
+  }
+
+  body {
+    padding-top: 70px; /* Adjust based on navbar height */
+  }
+  
+  .doctors-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .doctor-col {
+    width: 20%;           /* 5 cards per row */
+    padding: 12px;
+  }
+  
+  /* Tablet */
+  @media (max-width: 992px) {
+    .doctor-col {
+      width: 33.33%;      /* 3 per row */
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 576px) {
+    .doctor-col {
+      width: 50%;         /* 2 per row */
+    }
+  }
+
+  .doctor-card img {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+    
