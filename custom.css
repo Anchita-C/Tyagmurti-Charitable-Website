@@ -50,3 +50,28 @@ html, body {
   }
   
     
+/* Height of main navbar */
+:root {
+  --main-navbar-height: 72px;
+  --secondary-navbar-height: 0px;
+}
+
+/* Push secondary navbar below main navbar */
+.secondary-navbar {
+  top: var(--main-navbar-height);
+  z-index: 1020; /* below primary navbar (Bootstrap uses 1030) */
+}
+
+/* Push page content below both navbars */
+body {
+  padding-top: calc(
+    var(--main-navbar-height) + var(--secondary-navbar-height)
+  );
+}
+
+/* Anchor link offset (VERY important) */
+section {
+  scroll-margin-top: calc(
+    var(--main-navbar-height) + var(--secondary-navbar-height) + 10px
+  );
+}
