@@ -12,13 +12,6 @@ html, body {
     margin-top: auto;
   }
   
-  section {
-    scroll-margin-top: 70px; /* height of sticky navbar */
-  }
-
-  body {
-    padding-top: 70px; /* Adjust based on navbar height */
-  }
   
   .doctors-row {
     display: flex;
@@ -49,32 +42,30 @@ html, body {
     object-fit: cover;
   }
   
-    
-/* Height of main navbar */
+/* Height of the main navbar */
 :root {
-  --main-navbar-height: 72px;
-  --secondary-navbar-height: 0px;
+  --main-navbar-height: 70px;
 }
 
-/* Push secondary navbar below main navbar */
+/* Fix secondary navbar below the first one */
 .secondary-navbar {
-  top: var(--main-navbar-height);
-  z-index: 1020; /* below primary navbar (Bootstrap uses 1030) */
+  top: 1000px;
+  z-index: 1020; /* below primary navbar */
 }
 
-/* Push page content below both navbars */
+/* Push page content below BOTH navbars */
 body {
-  padding-top: calc(
-    var(--main-navbar-height) + var(--secondary-navbar-height)
-  );
+  padding-top: calc(var(--main-navbar-height) + 64px);
 }
 
-/* Anchor link offset (VERY important) */
+
+/* Anchor offset */
 section {
   scroll-margin-top: calc(
     var(--main-navbar-height) + var(--secondary-navbar-height) + 10px
   );
 }
+
 
 /* Masonry layout */
 .gallery-masonry {
@@ -136,7 +127,7 @@ section {
   }
 }
 
-/* Hospital Image Heading */
+/*HOSPITAL HEADING */
 .hospital-heading {
   background-image: url("hospital_page_heading.png");
   background-size: cover;
@@ -146,7 +137,6 @@ section {
   display: flex;
   align-items: center;
 }
-
 /* Translucent overlay */
 .heading-overlay {
   background: rgba(0, 0, 0, 0.45); /* controls translucency */
@@ -172,6 +162,32 @@ section {
   font-weight: 400;
 }
 
+/*OLD AGE HOME HEADING*/
+.old-age-home-heading{
+  background-image: url("oah_page_heading.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+/* Text styling */
+.oah-name {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.oah-tagline {
+  color: #eaeaea;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hospital-heading {
@@ -188,3 +204,11 @@ section {
 }
 
 
+#secondaryNavbar {
+  background-color: #d6d6d6 !important;
+}
+
+#secondaryNavbar .nav-link,
+#secondaryNavbar .navbar-brand {
+  color: #333;
+}
