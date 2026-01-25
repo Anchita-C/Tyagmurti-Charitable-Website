@@ -247,3 +247,27 @@ section {
 #secondaryNavbar .navbar-brand {
   color: #333;
 }
+/*
+MAKING GALLERY IMAGES SMALLER
+.gallery-masonry {
+  column-count: 4;       
+  column-gap: 15px;
+}
+
+.gallery-item {
+  margin-bottom: 15px;
+}
+
+.gallery-item img {
+  width: 90%;            
+  display: block;
+  margin: 0 auto;       
+  border-radius: 8px;
+}
+
+.gallery-item figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+ */
