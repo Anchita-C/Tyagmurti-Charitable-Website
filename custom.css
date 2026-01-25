@@ -162,6 +162,41 @@ section {
   font-weight: 400;
 }
 
+/*HSCHOOL HEADING */
+.school-heading {
+  background-image: url("school_page_heading.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+/* Translucent overlay */
+.heading-overlay {
+  background: rgba(0, 0, 0, 0.45); /* controls translucency */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+/* Text styling */
+.school-name {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.school-tagline {
+  color: #eaeaea;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
 /*OLD AGE HOME HEADING*/
 .old-age-home-heading{
   background-image: url("oah_page_heading.png");

@@ -1,118 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="custom.css">
-    <meta charset="UTF-8">
-    <title>School | Charity Trust</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Hospital | Charity Trust</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet">
+    <style>
+        /* FIX FOR SECONDARY NAVBAR */
+        body {
+            padding-top: 140px; /* Space for both navbars */
+        }
+        
+        /* Make secondary navbar fixed */
+        #secondaryNavbar {
+            position: fixed;
+            top: 56px; /* Height of main navbar */
+            width: 100%;
+            z-index: 1029;
+            background-color: white; /* Ensure background is visible */
+        }
+        
+        /* Fix anchor link scrolling */
+        section {
+            scroll-margin-top: 140px;
+        }
+    </style>
+    <script>
+        // Adjust spacing dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainNavbar = document.querySelector('.navbar.fixed-top');
+            const secondaryNavbar = document.getElementById('secondaryNavbar');
+            
+            if (mainNavbar && secondaryNavbar) {
+                // Update secondary navbar position based on main navbar height
+                function updateNavbarPositions() {
+                    const mainHeight = mainNavbar.offsetHeight;
+                    secondaryNavbar.style.top = mainHeight + 'px';
+                    
+                    // Update body padding
+                    const totalHeight = mainHeight + secondaryNavbar.offsetHeight;
+                    document.body.style.paddingTop = totalHeight + 'px';
+                    
+                    // Update scroll margin for all sections
+                    document.querySelectorAll('section').forEach(section => {
+                        section.style.scrollMarginTop = totalHeight + 'px';
+                    });
+                }
+                
+                // Run on load and resize
+                updateNavbarPositions();
+                window.addEventListener('resize', updateNavbarPositions);
+            }
+        });
+    </script>
+
 </head>
 
 <body>
 
+<!-- Hospital Heading Section -->
+<section class="school-heading">
+    <div class="heading-overlay">
+      <div class="container">
+        <h1 class="school-name">The somesome School</h1>
+        <p class="school-tagline">Compassion • Care • Commitment</p>
+      </div>
+    </div>
+  </section>
+  
+
   <!-- NAVBAR (copy from index.html) -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+  <div class="container">
+
+    <!-- Organisation Name -->
+    <a class="navbar-brand fw-bold" href="index.html" style="color: rgb(188, 9, 9);">
+      Charity Trust
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+
+      <ul class="navbar-nav flex-grow-1 justify-content-evenly text-center">
+        <li class="nav-item">
+          <a class="nav-link" href="about.html"
+             style="color: rgb(188, 9, 9)">
+            About Us
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="hospital.html"
+             style="color: rgb(188, 9, 9);">
+            Hospital
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="old-age-home.html"
+             style="color: rgb(188, 9, 9);">
+            Old Age Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="school.html"
+             style="color: rgb(188, 9, 9);">
+            School
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"
+             style="color: rgb(188, 9, 9);">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+
+      <!-- Donate Button -->
+      <a href="donate.html" class="btn btn-danger btn-lg ms-lg-3 px-4">
+        Donate
+      </a>
+
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- Secondary Navbar -->
+<nav id="secondaryNavbar" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container">
   
-      <!-- Organisation Name -->
-      <a class="navbar-brand fw-bold" href="index.html" style="color: rgb(188, 9, 9);">
-        Charity Trust
-      </a>
+      <!-- Brand -->
+      <a class="navbar-brand me-5" href="#">School</a>
   
-      <!-- Mobile toggle -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#hospitalNavbar" aria-controls="hospitalNavbar"
+        aria-expanded="false" aria-label="Toggle navigation"> 
         <span class="navbar-toggler-icon"></span>
       </button>
   
-      <!-- Navbar content -->
-      <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-  
-        <ul class="navbar-nav flex-grow-1 justify-content-evenly text-center">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-               style="color: rgb(188, 9, 9)">
-              About Us
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="hospital.html"
-               style="color: rgb(188, 9, 9);">
-              Hospital
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="old-age-home.html"
-               style="color: rgb(188, 9, 9);">
-              Old Age Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="school.html"
-               style="color: rgb(188, 9, 9);">
-              School
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-               style="color: rgb(188, 9, 9);">
-              Contact Us
-            </a>
-          </li>
-        </ul>
-  
-        <!-- Donate Button -->
-        <a href="donate.html" class="btn btn-danger btn-lg ms-lg-3 px-4">
-          Donate
-        </a>
-  
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="hospitalNavbar">    
+        <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+            <li class="nav-item mx-lg-3">
+              <a class="nav-link" href="#opd">OPD</a>
+            </li>
+            <li class="nav-item mx-lg-3">
+              <a class="nav-link" href="#departments">Departments</a>
+            </li>
+            <li class="nav-item mx-lg-3">
+              <a class="nav-link" href="#doctors">Our Doctors</a>
+            </li>
+            <li class="nav-item mx-lg-3"></li>
+                <a class="nav-link" href="#gallery">Gallery</a>
+              </li>
+            <li class="nav-item mx-lg-3">
+              <a class="nav-link" href="#mission">Mission & Vision</a>
+            </li>
+            
+          </ul>          
+          
       </div>
   
     </div>
   </nav>
-
   
-
-
-  <!-- SCHOOL SECTION -->
-  <section class="py-5">
+  <!-- OPD Section -->
+  <section id="opd" class="py-5">
     <div class="container">
-
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-
-          <h2 class="mb-4 text-center">Our School</h2>
-
-          <p>
-            Our school is committed to providing quality education in a
-            nurturing and inclusive environment. We believe education is
-            the foundation for a better and brighter future.
-          </p>
-
-          <p>
-            Through dedicated teachers and holistic learning programs, we
-            support students in developing knowledge, values, and confidence
-            to succeed in life.
-          </p>
-
-          <ul class="mt-4">
-            <li>Quality primary and secondary education</li>
-            <li>Experienced and caring teachers</li>
-            <li>Focus on holistic development</li>
-            <li>Support for underprivileged children</li>
-          </ul>
-
-        </div>
-      </div>
-
+      <h2 class="text-left mb-4 section-title">OPD</h2>
+      <p>
+        Sample text for OPD section. This is where details about the hospital’s outpatient
+        services, timings, and procedures would go.
+      </p>
     </div>
   </section>
 
 
+  <!--Doctors Section-->
+  <!-- Doctors Section -->
+  <section id="doctors" class="py-5">
+    <div class="container">
+      <h2 class="text-left mb-4 section-title">Our Doctors</h2>
+      <div class="row g-4">
+
+        <!-- Sample Doctor Cards (10) -->
+        <!-- Adjust col-lg-2, col-md-4 for responsiveness -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="doctor_a_img.png" class="card-img-top" alt="Dr. A">
+            <div class="card-body">
+              <h6 class="card-title">Dr. A</h6>
+              <p class="card-text small mb-0">Dentist</p>
+              <p class="card-text small mb-0">MBBS, BDS</p>
+              <p class="card-text small">10 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="doctor_b_img.png" class="card-img-top" alt="Dr. B">
+            <div class="card-body">
+              <h6 class="card-title">Dr. B</h6>
+              <p class="card-text small mb-0">Pediatrician</p>
+              <p class="card-text small mb-0">MBBS, MD</p>
+              <p class="card-text small">8 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="doctor_c_img.png" class="card-img-top" alt="Dr. C">
+            <div class="card-body">
+              <h6 class="card-title">Dr. C</h6>
+              <p class="card-text small mb-0">Cardiologist</p>
+              <p class="card-text small mb-0">MBBS, MD</p>
+              <p class="card-text small">12 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. D">
+            <div class="card-body">
+              <h6 class="card-title">Dr. D</h6>
+              <p class="card-text small mb-0">Neurologist</p>
+              <p class="card-text small mb-0">MBBS, MD</p>
+              <p class="card-text small">15 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. E">
+            <div class="card-body">
+              <h6 class="card-title">Dr. E</h6>
+              <p class="card-text small mb-0">General Medicine</p>
+              <p class="card-text small mb-0">MBBS</p>
+              <p class="card-text small">9 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next 5 doctor cards -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. F">
+            <div class="card-body">
+              <h6 class="card-title">Dr. F</h6>
+              <p class="card-text small mb-0">Dentist</p>
+              <p class="card-text small mb-0">MBBS, BDS</p>
+              <p class="card-text small">7 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. G">
+            <div class="card-body">
+              <h6 class="card-title">Dr. G</h6>
+              <p class="card-text small mb-0">Pediatrician</p>
+              <p class="card-text small mb-0">MBBS, MD</p>
+              <p class="card-text small">11 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. H">
+            <div class="card-body">
+              <h6 class="card-title">Dr. H</h6>
+              <p class="card-text small mb-0">Cardiologist</p>
+              <p class="card-text small mb-0">MBBS, MD</p>
+              <p class="card-text small">14 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. I">
+            <div class="card-body">
+              <h6 class="card-title">Dr. I</h6>
+              <p class="card-text small mb-0">Neurologist</p>
+              <p class="card-text small mb-0">MBBS, MD</p>
+              <p class="card-text small">10 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. J">
+            <div class="card-body">
+              <h6 class="card-title">Dr. J</h6>
+              <p class="card-text small mb-0">General Medicine</p>
+              <p class="card-text small mb-0">MBBS</p>
+              <p class="card-text small">8 yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+    <!-- Gallery Section -->
+<section id="gallery" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-left mb-5 section-title">Gallery</h2>
+  
+      <div class="gallery-masonry">
+  
+        <figure class="gallery-item">
+          <img src="https://via.placeholder.com/600x800" alt="OPD Facility">
+          <figcaption>OPD Facility</figcaption>
+        </figure>
+  
+        <figure class="gallery-item">
+          <img src="https://via.placeholder.com/600x400" alt="ICU Ward">
+          <figcaption>ICU Ward</figcaption>
+        </figure>
+  
+        <figure class="gallery-item">
+          <img src="https://via.placeholder.com/600x700" alt="Operation Theatre">
+          <figcaption>Operation Theatre</figcaption>
+        </figure>
+  
+        <figure class="gallery-item">
+          <img src="https://via.placeholder.com/600x500" alt="Health Camp">
+          <figcaption>Community Health Camp</figcaption>
+        </figure>
+  
+        <figure class="gallery-item">
+          <img src="https://via.placeholder.com/600x650" alt="Patient Ward">
+          <figcaption>Patient Ward</figcaption>
+        </figure>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section id="mission" class="py-5">
+
+    <div class="container">
+      <h2 class="text-center mb-4 section-title">Mission & Vision</h2>
+      <p>
+        Sample text for Mission & Vision. Describe the hospital's goals, philosophy, and
+        commitment to patients and the community.
+      </p>
+    </div>
+  </section>
+
+  <!-- Donate Section at the Bottom -->
+  <section id="mission" class="py-5">
+    <div class="container text-center">
+      <p class="lead mb-4">
+        Donate here to the trust or directly to the hospital if you would like to support and make an impact.
+      </p>
+      <a href="donate.html" class="btn btn-danger btn-lg px-4">
+        Donate Now
+      </a>
+    </div>
+  </section>
+  
+  
   <!-- FOOTER (copy from index.html) -->
- <!-- FOOTER (copy from index.html) -->
- <footer class="bg-dark text-light py-4">
+  <footer class="bg-dark text-light py-4">
     <div class="container">
   
       <div class="row">
@@ -151,6 +421,7 @@
   
     </div>
   </footer>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
