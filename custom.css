@@ -32,7 +32,7 @@ section {
 /* 
 ----------------------------------
 ----------------------------------
-NAVIGATION 
+SECONDARY NAVIGATION 
 ----------------------------------*/
 ----------------------------------
 .secondary-navbar {
@@ -67,6 +67,34 @@ NAVIGATION
   color: #000;
   font-weight: 600;
 }
+
+/* 
+----------------------------------
+----------------------------------
+PRIMARY NAVIGATION 
+----------------------------------
+----------------------------------
+*/
+#primaryNavbar .nav-link.active {
+  background-color: transparent !important;
+}
+
+#primaryNavbar .nav-link {
+  position: relative;
+  font-weight: 500;
+}
+
+#primaryNavbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(188, 9, 9);
+  border-radius: 2px;
+}
+
 
 /* 
 ----------------------------------
