@@ -1,73 +1,112 @@
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  footer {
-    margin-top: auto;
-  }
-  
-  
-  .doctors-row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .doctor-col {
-    width: 20%;           /* 5 cards per row */
-    padding: 12px;
-  }
-  
-  /* Tablet */
-  @media (max-width: 992px) {
-    .doctor-col {
-      width: 33.33%;      /* 3 per row */
-    }
-  }
-  
-  /* Mobile */
-  @media (max-width: 576px) {
-    .doctor-col {
-      width: 50%;         /* 2 per row */
-    }
-  }
-
-  .doctor-card img {
-    height: 180px;
-    object-fit: cover;
-  }
-  
-/* Height of the main navbar */
+/* 
+----------------------------------
+----------------------------------
+GLOBAL STYLES & LAYOUT 
+--------------------------------
+--------------------------------*/
 :root {
   --main-navbar-height: 70px;
 }
 
-/* Fix secondary navbar below the first one */
-.secondary-navbar {
-  top: 1000px;
-  z-index: 1020; /* below primary navbar */
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-/* Push page content below BOTH navbars */
 body {
+  display: flex;
+  flex-direction: column;
   padding-top: calc(var(--main-navbar-height) + 64px);
 }
 
+footer {
+  margin-top: auto;
+}
 
-/* Anchor offset */
 section {
   scroll-margin-top: calc(
     var(--main-navbar-height) + var(--secondary-navbar-height) + 10px
   );
 }
 
+/* 
+----------------------------------
+----------------------------------
+NAVIGATION 
+----------------------------------*/
+----------------------------------
+.secondary-navbar {
+  top: 1000px;
+  z-index: 1020; /* below primary navbar */
+}
 
-/* Masonry layout */
+#secondaryNavbar {
+  background-color: #d6d6d6 !important;
+}
+
+#secondaryNavbar .nav-link,
+#secondaryNavbar .navbar-brand {
+  color: #333;
+}
+
+.side-nav .nav-link {
+  color: #222;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  margin: 4px 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.side-nav .nav-link:hover {
+  background-color: #c2c2c2;
+  color: #000;
+}
+
+.side-nav .nav-link.active {
+  background-color: #b0b0b0;
+  color: #000;
+  font-weight: 600;
+}
+
+/* 
+----------------------------------
+----------------------------------
+DOCTOR CARDS & GRID 
+----------------------------------
+----------------------------------*/
+.doctors-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.doctor-col {
+  width: 20%;           /* 5 cards per row */
+  padding: 12px;
+}
+
+.doctor-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .doctor-col {
+    width: 33.33%;      /* 3 per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .doctor-col {
+    width: 50%;         /* 2 per row */
+  }
+}
+
+/* 
+----------------------------------
+----------------------------------
+GALLERY & MASONRY 
+----------------------------------
+----------------------------------*/
 .gallery-masonry {
   column-count: 3;
   column-gap: 1.5rem;
@@ -80,14 +119,12 @@ section {
   overflow: hidden;
 }
 
-/* Images */
 .gallery-item img {
   width: 100%;
   display: block;
   border-radius: 4px;
 }
 
-/* Caption (default: hidden overlay for desktop) */
 .gallery-item figcaption {
   position: absolute;
   inset: 0;
@@ -103,14 +140,12 @@ section {
   padding: 1rem;
 }
 
-/* Hover reveal (desktop only) */
 @media (hover: hover) {
   .gallery-item:hover figcaption {
     opacity: 1;
   }
 }
 
-/* Mobile behavior */
 @media (max-width: 768px) {
   .gallery-masonry {
     column-count: 1;
@@ -127,17 +162,12 @@ section {
   }
 }
 
-/*HOSPITAL HEADING */
-.hospital-heading {
-  background-image: url("hospital_page_heading.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-}
-/* Translucent overlay */
+/* 
+----------------------------------
+----------------------------------
+SHARED HEADING ELEMENTS 
+----------------------------------
+----------------------------------*/
 .heading-overlay {
   background: rgba(0, 0, 0, 0.45); /* controls translucency */
   width: 100%;
@@ -147,7 +177,17 @@ section {
   padding: 4rem 0;
 }
 
-/* Text styling */
+/* HOSPITAL SECTION */
+.hospital-heading {
+  background-image: url("hospital_page_heading.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
 .hospital-name {
   color: #ffffff;
   font-size: 2.5rem;
@@ -162,7 +202,24 @@ section {
   font-weight: 400;
 }
 
-/*HSCHOOL HEADING */
+@media (max-width: 768px) {
+  .hospital-heading {
+    min-height: 220px;
+  }
+  .hospital-name {
+    font-size: 2rem;
+  }
+  .hospital-tagline {
+    font-size: 1rem;
+  }
+}
+
+/* 
+----------------------------------
+----------------------------------
+SCHOOL SECTION 
+----------------------------------
+----------------------------------*/
 .school-heading {
   background-image: url("school_page_heading.png");
   background-size: cover;
@@ -172,17 +229,7 @@ section {
   display: flex;
   align-items: center;
 }
-/* Translucent overlay */
-.heading-overlay {
-  background: rgba(0, 0, 0, 0.45); /* controls translucency */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 4rem 0;
-}
 
-/* Text styling */
 .school-name {
   color: #ffffff;
   font-size: 2.5rem;
@@ -197,7 +244,12 @@ section {
   font-weight: 400;
 }
 
-/*OLD AGE HOME HEADING*/
+/* 
+----------------------------------
+----------------------------------
+OLD AGE HOME SECTION 
+----------------------------------
+----------------------------------*/
 .old-age-home-heading{
   background-image: url("oah_page_heading.png");
   background-size: cover;
@@ -208,7 +260,6 @@ section {
   align-items: center;
 }
 
-/* Text styling */
 .oah-name {
   color: #ffffff;
   font-size: 2.5rem;
@@ -223,32 +274,13 @@ section {
   font-weight: 400;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hospital-heading {
-    min-height: 220px;
-  }
-
-  .hospital-name {
-    font-size: 2rem;
-  }
-
-  .hospital-tagline {
-    font-size: 1rem;
-  }
-}
-
-
-#secondaryNavbar {
-  background-color: #d6d6d6 !important;
-}
-
-#secondaryNavbar .nav-link,
-#secondaryNavbar .navbar-brand {
-  color: #333;
-}
-/*
+/* 
+----------------------------------
+----------------------------------
+DEPRECATED / COMMENTED STYLES 
 MAKING GALLERY IMAGES SMALLER
+----------------------------------
+----------------------------------
 .gallery-masonry {
   column-count: 4;       
   column-gap: 15px;
@@ -270,4 +302,4 @@ MAKING GALLERY IMAGES SMALLER
   font-size: 0.9rem;
   margin-top: 6px;
 }
- */
+*/

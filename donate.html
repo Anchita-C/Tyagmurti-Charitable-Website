@@ -11,6 +11,28 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="custom.css">
 </head>
+<div class="modal fade" id="donateModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Coming Soon</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        🚧 This feature is currently under development.<br>
+        Please check back soon!
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <body>
 
@@ -72,12 +94,10 @@
       </div>
   
     </div>
-  </nav>
-  
-
+  </nav>  
 
   <!-- DONATE SECTION -->
-  <section class="py-5">
+  <section class="py-0">
     <div class="container">
   
       <h2 class="text-center mb-3">Support Our Cause</h2>
@@ -96,11 +116,6 @@
                 Support the overall mission and operations of our charitable trust.
               </p>
   
-              <!-- Predefined amounts -->
-              <div class="mb-2">
-                <button class="btn btn-outline-danger me-2 amount-btn" data-amount="500">₹500</button>
-                <button class="btn btn-outline-danger me-2 amount-btn" data-amount="1000">₹1000</button>
-              </div>
   
               <!-- Custom amount -->
               <div class="mb-3">
@@ -108,7 +123,13 @@
               </div>
   
               <!-- Donate Button -->
-              <a href="#" class="btn btn-danger donate-btn">Donate</a>
+              <a href="#"
+              class="btn btn-danger donate-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#donateModal">
+              Donate
+              </a>
+
             </div>
           </div>
         </div>
@@ -120,13 +141,8 @@
                 <h5 class="card-title">Donate to Old Age Home</h5>
                 <p class="card-text">
                     Help provide care, comfort, and dignity to senior citizens.
+                    <br><br>
                 </p>
-    
-                <!-- Predefined amounts -->
-                <div class="mb-2">
-                  <button class="btn btn-outline-danger me-2 amount-btn" data-amount="500">₹500</button>
-                  <button class="btn btn-outline-danger me-2 amount-btn" data-amount="1000">₹1000</button>
-                </div>
     
                 <!-- Custom amount -->
                 <div class="mb-3">
@@ -134,7 +150,13 @@
                 </div>
     
                 <!-- Donate Button -->
-                <a href="#" class="btn btn-danger donate-btn">Donate</a>
+                <a href="#"
+                class="btn btn-danger donate-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#donateModal">
+                Donate
+                </a>
+
               </div>
             </div>
           </div>
@@ -145,13 +167,8 @@
                 <h5 class="card-title">Donate to School</h5>
                 <p class="card-text">
                     Support education and holistic development for children.
+                    <br><br>
                 </p>
-    
-                <!-- Predefined amounts -->
-                <div class="mb-2">
-                  <button class="btn btn-outline-danger me-2 amount-btn" data-amount="500">₹500</button>
-                  <button class="btn btn-outline-danger me-2 amount-btn" data-amount="1000">₹1000</button>
-                </div>
     
                 <!-- Custom amount -->
                 <div class="mb-3">
@@ -159,7 +176,12 @@
                 </div>
     
                 <!-- Donate Button -->
-                <a href="#" class="btn btn-danger donate-btn">Donate</a>
+                <a href="#"
+                class="btn btn-danger donate-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#donateModal">
+                Donate
+                </a>
               </div>
             </div>
           </div>
@@ -171,13 +193,8 @@
                 <h5 class="card-title">Donate to Hospital</h5>
                 <p class="card-text">
                     Contribute towards affordable and compassionate healthcare.
+                    <br><br>
                 </p>
-    
-                <!-- Predefined amounts -->
-                <div class="mb-2">
-                  <button class="btn btn-outline-danger me-2 amount-btn" data-amount="500">₹500</button>
-                  <button class="btn btn-outline-danger me-2 amount-btn" data-amount="1000">₹1000</button>
-                </div>
     
                 <!-- Custom amount -->
                 <div class="mb-3">
@@ -185,7 +202,13 @@
                 </div>
     
                 <!-- Donate Button -->
-                <a href="#" class="btn btn-danger donate-btn">Donate</a>
+                <a href="#"
+                class="btn btn-danger donate-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#donateModal">
+                Donate
+                </a>
+
               </div>
             </div>
           </div>
