@@ -207,7 +207,7 @@ SHARED HEADING ELEMENTS
 
 /* HOSPITAL SECTION */
 .hospital-heading {
-  background-image: url("hospital_page_heading.png");
+  background-image: url("../images/hospital_images/hospital_page_heading.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -249,7 +249,7 @@ SCHOOL SECTION
 ----------------------------------
 ----------------------------------*/
 .school-heading {
-  background-image: url("school_page_heading.png");
+  background-image: url("../images/school_images/school_page_heading.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -279,7 +279,7 @@ OLD AGE HOME SECTION
 ----------------------------------
 ----------------------------------*/
 .old-age-home-heading{
-  background-image: url("oah_page_heading.png");
+  background-image: url("../images/oah_images/oah_page_heading.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
