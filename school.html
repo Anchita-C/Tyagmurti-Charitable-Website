@@ -2,67 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hospital | Charity Trust</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School | Tyagmurti Trust</title>
 
-  <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <style>
-        /* FIX FOR SECONDARY NAVBAR */
-        body {
-            padding-top: 140px; /* Space for both navbars */
-        }
-        
-        /* Make secondary navbar fixed */
-        #secondaryNavbar {
-            position: fixed;
-            top: 56px; /* Height of main navbar */
-            width: 100%;
-            z-index: 1029;
-            background-color: white; /* Ensure background is visible */
-        }
-        
-        /* Fix anchor link scrolling */
-        section {
-            scroll-margin-top: 140px;
-        }
-    </style>
-    <script>
-        // Adjust spacing dynamically
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainNavbar = document.querySelector('.navbar.fixed-top');
-            const secondaryNavbar = document.getElementById('secondaryNavbar');
-            
-            if (mainNavbar && secondaryNavbar) {
-                // Update secondary navbar position based on main navbar height
-                function updateNavbarPositions() {
-                    const mainHeight = mainNavbar.offsetHeight;
-                    secondaryNavbar.style.top = mainHeight + 'px';
-                    
-                    // Update body padding
-                    const totalHeight = mainHeight + secondaryNavbar.offsetHeight;
-                    document.body.style.paddingTop = totalHeight + 'px';
-                    
-                    // Update scroll margin for all sections
-                    document.querySelectorAll('section').forEach(section => {
-                        section.style.scrollMarginTop = totalHeight + 'px';
-                    });
-                }
-                
-                // Run on load and resize
-                updateNavbarPositions();
-                window.addEventListener('resize', updateNavbarPositions);
-            }
-        });
-    </script>
-
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body>
+<!--
+  data-page        → tells navbar-loader.js which primary nav link to mark active
+  data-secondary-navbar → path to the secondary navbar partial for this page
+-->
+<body data-page="school" data-secondary-navbar="partials/navbar-secondary-school.html">
 
-<!-- Hospital Heading Section -->
-<section class="school-heading">
+  <!-- Page heading banner -->
+  <section class="school-heading">
     <div class="heading-overlay">
       <div class="container">
         <h1 class="school-name">Tyagmurthi Vishwanath Acharya Vidya Mandir</h1>
@@ -70,392 +24,104 @@
       </div>
     </div>
   </section>
-  
 
-  <!-- NAVBAR (copy from index.html) -->
-  <nav id="primaryNavbar"
-     class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
-  <div class="container">
+  <!-- Primary navbar injected here by navbar-loader.js -->
+  <div id="primary-navbar-placeholder"></div>
 
-    <!-- Organisation Name -->
-    <a class="navbar-brand fw-bold" href="index.html" style="color: rgb(188, 9, 9);">
-      TYAGMURTI TRUST
-    </a>
+  <!-- Secondary navbar injected here by navbar-loader.js -->
+  <div id="secondary-navbar-placeholder"></div>
 
-    <!-- Mobile toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar content -->
-    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-
-      <ul class="navbar-nav flex-grow-1 justify-content-evenly text-center">
-        <li class="nav-item">
-          <a class="nav-link" href="about.html"
-             style="color: rgb(188, 9, 9)">
-            About Us
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="hospital.html"
-             style="color: rgb(188, 9, 9);">
-            Hospital
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="old-age-home.html"
-             style="color: rgb(188, 9, 9);">
-            Old Age Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="school.html" style="color: rgb(188, 9, 9)">School</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html"
-             style="color: rgb(188, 9, 9);">
-            Contact Us
-          </a>
-        </li>
-      </ul>
-
-      <!-- Donate Button -->
-      <a href="donate.html" class="btn btn-danger btn-lg ms-lg-3 px-4">
-        Donate
-      </a>
-
-    </div>
-
-  </div>
-</nav>
-
-<!-- Secondary Navbar -->
-<nav id="secondaryNavbar" class="navbar side-nav navbar-expand-lg shadow-sm">
-  <div class="container">
-
-    <!-- Brand -->
-    <a class="navbar-brand me-5" href="#">SCHOOL</a>
-
-    <!-- Toggler -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#hospitalNavbar" aria-controls="hospitalNavbar"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar Links -->
-    <div class="collapse navbar-collapse" id="hospitalNavbar">    
-      <ul class="navbar-nav mb-2 mb-lg-0 text-center">
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#opd">OPD</a>
-          </li>
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#departments">Departments</a>
-          </li>
-          <!--
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#doctors">Our Doctors</a>
-          </li>
-          -->
-          <li class="nav-item mx-lg-3">
-              <a class="nav-link" href="#gallery">Gallery</a>
-            </li>
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#mission">Mission & Vision</a>
-          </li>
-         
-        </ul>                   
-    </div>
-  </div>
-</nav>
-  
-  <!-- OPD Section -->
-  <section id="opd" class="py-5">
+  <!-- Section 1 (fill in correct content / id when ready) -->
+  <section id="section1" class="py-5">
     <div class="container">
-      <h2 class="text-left mb-4 section-title">OPD</h2>
+      <h2 class="text-left mb-4 section-title">Section 1</h2>
       <p>
-        Sample text for OPD section. This is where details about the hospital’s outpatient
-        services, timings, and procedures would go.
+        Sample text. Replace this with the correct school section content.
       </p>
     </div>
   </section>
 
-
-  <!--Doctors Section
-  <section id="doctors" class="py-5">
-    <div class="container">
-      <h2 class="text-left mb-4 section-title">Our Doctors</h2>
-      <div class="row g-4">
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="doctor_a_img.png" class="card-img-top" alt="Dr. A">
-            <div class="card-body">
-              <h6 class="card-title">Dr. A</h6>
-              <p class="card-text small mb-0">Dentist</p>
-              <p class="card-text small mb-0">MBBS, BDS</p>
-              <p class="card-text small">10 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="doctor_b_img.png" class="card-img-top" alt="Dr. B">
-            <div class="card-body">
-              <h6 class="card-title">Dr. B</h6>
-              <p class="card-text small mb-0">Pediatrician</p>
-              <p class="card-text small mb-0">MBBS, MD</p>
-              <p class="card-text small">8 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="doctor_c_img.png" class="card-img-top" alt="Dr. C">
-            <div class="card-body">
-              <h6 class="card-title">Dr. C</h6>
-              <p class="card-text small mb-0">Cardiologist</p>
-              <p class="card-text small mb-0">MBBS, MD</p>
-              <p class="card-text small">12 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. D">
-            <div class="card-body">
-              <h6 class="card-title">Dr. D</h6>
-              <p class="card-text small mb-0">Neurologist</p>
-              <p class="card-text small mb-0">MBBS, MD</p>
-              <p class="card-text small">15 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. E">
-            <div class="card-body">
-              <h6 class="card-title">Dr. E</h6>
-              <p class="card-text small mb-0">General Medicine</p>
-              <p class="card-text small mb-0">MBBS</p>
-              <p class="card-text small">9 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        ##############next 5 teachers
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. F">
-            <div class="card-body">
-              <h6 class="card-title">Dr. F</h6>
-              <p class="card-text small mb-0">Dentist</p>
-              <p class="card-text small mb-0">MBBS, BDS</p>
-              <p class="card-text small">7 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. G">
-            <div class="card-body">
-              <h6 class="card-title">Dr. G</h6>
-              <p class="card-text small mb-0">Pediatrician</p>
-              <p class="card-text small mb-0">MBBS, MD</p>
-              <p class="card-text small">11 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. H">
-            <div class="card-body">
-              <h6 class="card-title">Dr. H</h6>
-              <p class="card-text small mb-0">Cardiologist</p>
-              <p class="card-text small mb-0">MBBS, MD</p>
-              <p class="card-text small">14 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. I">
-            <div class="card-body">
-              <h6 class="card-title">Dr. I</h6>
-              <p class="card-text small mb-0">Neurologist</p>
-              <p class="card-text small mb-0">MBBS, MD</p>
-              <p class="card-text small">10 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card h-100 text-center shadow-sm">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. J">
-            <div class="card-body">
-              <h6 class="card-title">Dr. J</h6>
-              <p class="card-text small mb-0">General Medicine</p>
-              <p class="card-text small mb-0">MBBS</p>
-              <p class="card-text small">8 yrs experience</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
--->
-
-
-    <!-- Gallery Section -->
-<section id="gallery" class="py-5 bg-light">
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-left mb-5 section-title">Gallery</h2>
-  
+
       <div class="gallery-masonry">
 
         <figure class="gallery-item">
-          <img src="students.png" alt="students">
-          <figcaption>Students playing with donated toys </figcaption>
+          <img src="images/school_images/students.png" alt="Students">
+          <figcaption>Students playing with donated toys</figcaption>
         </figure>
-  
+
         <figure class="gallery-item">
-          <img src="school_outside_pic.png" alt="school_outside_pic">
+          <img src="images/school_images/school_outside_pic.png" alt="School SignBoard">
           <figcaption>School SignBoard</figcaption>
         </figure>
-       
+
         <figure class="gallery-item">
-          <img src="students_and_oah.png" alt="students_and_oah">
-          <figcaption>Students interacting with members of Old Age home</figcaption>
+          <img src="images/school_images/students_and_oah.png" alt="Students and Old Age Home">
+          <figcaption>Students interacting with members of Old Age Home</figcaption>
         </figure>
-  
+
         <figure class="gallery-item">
-          <img src="inner_wheel_club.png" alt="inner wheel club">
-          <figcaption>Inner Wheel club with the chairman and students after donating desks and toys</figcaption>
+          <img src="images/school_images/inner_wheel_club.png" alt="Inner Wheel Club">
+          <figcaption>Inner Wheel Club with the chairman and students after donating desks and toys</figcaption>
         </figure>
-  
-        <figure class="gallery-item"> 
-          <img src="inside_classroom.png" alt="classroom">
+
+        <figure class="gallery-item">
+          <img src="images/school_images/inside_classroom.png" alt="Classroom">
           <figcaption>Classroom</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="members_iwc.png" alt="Inner Wheel Club">
-          <figcaption>Inner Wheel club members</figcaption>
+          <img src="images/school_images/members_iwc.png" alt="Inner Wheel Club Members">
+          <figcaption>Inner Wheel Club Members</figcaption>
         </figure>
 
-        <figure class="gallery-item"> 
-          <img src="hindi_classroom.png" alt="students in hindi class">
-          <figcaption>Students in hindi class</figcaption>
-        </figure> 
-
-        <figure class="gallery-item"> 
-          <img src="students_water_cooler.png" alt="inner wheel club">
-          <figcaption>students with newly donated water cooler</figcaption>
+        <figure class="gallery-item">
+          <img src="images/school_images/hindi_classroom.png" alt="Students in Hindi class">
+          <figcaption>Students in Hindi class</figcaption>
         </figure>
 
-        <figure class="gallery-item"> 
-          <img src="inside_classroom.png" alt="classroom">
-          <figcaption>Classroom</figcaption>
+        <figure class="gallery-item">
+          <img src="images/school_images/students_water_cooler.png" alt="Students with water cooler">
+          <figcaption>Students with newly donated water cooler</figcaption>
         </figure>
 
-        <figure class="gallery-item"> 
-          <img src="students_in_classroom.png" alt="students in classroom">
+        <figure class="gallery-item">
+          <img src="images/school_images/students_in_classroom.png" alt="Students during classes">
           <figcaption>Students during classes</figcaption>
         </figure>
-  
+
       </div>
     </div>
   </section>
 
   <!-- Mission & Vision Section -->
   <section id="mission" class="py-5">
-
     <div class="container">
       <h2 class="text-center mb-4 section-title">Mission & Vision</h2>
       <p>
-        Sample text for Mission & Vision. Describe the hospital's goals, philosophy, and
-        commitment to patients and the community.
+        Sample text for Mission & Vision. Describe the school's goals, philosophy, and
+        commitment to students and the community.
       </p>
     </div>
   </section>
 
-  <!-- Donate Section at the Bottom -->
-  <section id="mission" class="py-5">
+  <!-- Donate Section -->
+  <section class="py-5 bg-light">
     <div class="container text-center">
       <p class="lead mb-4">
-        Donate here to the trust or directly to the hospital if you would like to support and make an impact.
+        Donate here to the trust or directly to the school if you would like to support and make an impact.
       </p>
-      <a href="donate.html" class="btn btn-danger btn-lg px-4">
-        Donate Now
-      </a>
+      <a href="donate.html" class="btn btn-danger btn-lg px-4">Donate Now</a>
     </div>
   </section>
-  
-  
-  <!-- FOOTER (copy from index.html) -->
-  <footer class="bg-dark text-light py-4">
-    <div class="container">
-  
-      <div class="row">
-  
-        <!-- Organisation Info -->
-        <div class="col-md-4 mb-3">
-          <h5>Charity Trust</h5>
-          <p class="small">
-            Dedicated to serving humanity through healthcare, education,
-            and compassionate care for the elderly.
-          </p>
-        </div>
-  
-        <!-- Contact Info -->
-        <div class="col-md-4 mb-3">
-          <h6>Contact Us</h6>
-          <p class="small mb-1">📞 Phone: +91 98148 28400</p>
-          <p class="small mb-1">📧 Email: info@charitytrust.org</p>
-        </div>
-  
-        <!-- Social Media -->
-        <div class="col-md-4 mb-3">
-          <h6>Follow Us</h6>
-          <a href="#" class="text-light text-decoration-none d-block">Facebook</a>
-          <a href="#" class="text-light text-decoration-none d-block">Instagram</a>
-          <a href="#" class="text-light text-decoration-none d-block">Twitter</a>
-        </div>
-  
-      </div>
-  
-      <hr class="border-light">
-  
-      <div class="text-center small">
-        © 2026 Charity Trust. All rights reserved.
-      </div>
-  
-    </div>
-  </footer>
 
+  <!-- Footer injected here by navbar-loader.js -->
+  <div id="footer-placeholder"></div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.querySelectorAll('.side-nav .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        document
-          .querySelectorAll('.side-nav .nav-link')
-          .forEach(l => l.classList.remove('active'));
-  
-        link.classList.add('active');
-      });
-    });
-  </script>
-
+  <script src="js/navbar-loader.js" defer></script>
 </body>
 </html>

@@ -2,322 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hospital | Charity Trust</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Old Age Home | Tyagmurti Trust</title>
 
-  <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <style>
-        /* FIX FOR SECONDARY NAVBAR */
-        body {
-            padding-top: 140px; /* Space for both navbars */
-        }
-        
-        /* Make secondary navbar fixed */
-        #secondaryNavbar {
-            position: fixed;
-            top: 56px; /* Height of main navbar */
-            width: 100%;
-            z-index: 1029;
-            background-color: white; /* Ensure background is visible */
-        }
-        
-        /* Fix anchor link scrolling */
-        section {
-            scroll-margin-top: 140px;
-        }
-    </style>
-    <script>
-        // Adjust spacing dynamically
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainNavbar = document.querySelector('.navbar.fixed-top');
-            const secondaryNavbar = document.getElementById('secondaryNavbar');
-            
-            if (mainNavbar && secondaryNavbar) {
-                // Update secondary navbar position based on main navbar height
-                function updateNavbarPositions() {
-                    const mainHeight = mainNavbar.offsetHeight;
-                    secondaryNavbar.style.top = mainHeight + 'px';
-                    
-                    // Update body padding
-                    const totalHeight = mainHeight + secondaryNavbar.offsetHeight;
-                    document.body.style.paddingTop = totalHeight + 'px';
-                    
-                    // Update scroll margin for all sections
-                    document.querySelectorAll('section').forEach(section => {
-                        section.style.scrollMarginTop = totalHeight + 'px';
-                    });
-                }
-                
-                // Run on load and resize
-                updateNavbarPositions();
-                window.addEventListener('resize', updateNavbarPositions);
-            }
-        });
-    </script>
-
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body>
+<!--
+  data-page        → tells navbar-loader.js which primary nav link to mark active
+  data-secondary-navbar → path to the secondary navbar partial for this page
+-->
+<body data-page="old-age-home" data-secondary-navbar="partials/navbar-secondary-oah.html">
 
-
-<!-- OAH Heading Section -->
-<section class="old-age-home-heading">
-  <div class="heading-overlay">
-    <div class="container">
-      <h1 class="oah-name">Tyagmurthi Acharya Vishwanath (Sidh) Vridh Ashram</h1>
-      <p class="oah-tagline">Ladhewali, Jalandhar City, Punjab</p>
+  <!-- Page heading banner -->
+  <section class="old-age-home-heading">
+    <div class="heading-overlay">
+      <div class="container">
+        <h1 class="oah-name">Tyagmurthi Acharya Vishwanath (Sidh) Vridh Ashram</h1>
+        <p class="oah-tagline">Ladhewali, Jalandhar City, Punjab</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- NAVBAR (copy from index.html) -->
-  <nav id="primaryNavbar"
-     class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
-  <div class="container">
+  <!-- Primary navbar injected here by navbar-loader.js -->
+  <div id="primary-navbar-placeholder"></div>
 
-    <!-- Organisation Name -->
-    <a class="navbar-brand fw-bold" href="index.html" style="color: rgb(188, 9, 9);">
-      TYAGMURTI TRUST
-    </a>
+  <!-- Secondary navbar injected here by navbar-loader.js -->
+  <div id="secondary-navbar-placeholder"></div>
 
-    <!-- Mobile toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar content -->
-    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-
-      <ul class="navbar-nav flex-grow-1 justify-content-evenly text-center">
-        <li class="nav-item">
-          <a class="nav-link" href="about.html"
-             style="color: rgb(188, 9, 9)">
-            About Us
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="hospital.html"
-             style="color: rgb(188, 9, 9);">
-            Hospital
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="old-age-home.html" style="color: rgb(188, 9, 9)">Old Age Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="school.html"
-             style="color: rgb(188, 9, 9);">
-            School
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html"
-             style="color: rgb(188, 9, 9);">
-            Contact Us
-          </a>
-        </li>
-      </ul>
-
-      <!-- Donate Button -->
-      <a href="donate.html" class="btn btn-danger btn-lg ms-lg-3 px-4">
-        Donate
-      </a>
-
-    </div>
-
-  </div>
-</nav>
-
-
-<!-- Secondary Navbar -->
-<nav id="secondaryNavbar" class="navbar side-nav navbar-expand-lg shadow-sm">
-  <div class="container">
-
-    <!-- Brand -->
-    <a class="navbar-brand me-5" href="#">OLD AGE HOME</a>
-
-    <!-- Toggler -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#hospitalNavbar" aria-controls="hospitalNavbar"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar Links -->
-    <div class="collapse navbar-collapse" id="hospitalNavbar">    
-      <ul class="navbar-nav mb-2 mb-lg-0 text-center">
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#opd">OPD</a>
-          </li>
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#departments">Departments</a>
-          </li>
-          <!--
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#doctors">Our Doctors</a>
-          </li>
-          -->
-          <li class="nav-item mx-lg-3">
-              <a class="nav-link" href="#gallery">Gallery</a>
-            </li>
-          <li class="nav-item mx-lg-3">
-            <a class="nav-link" href="#mission">Mission & Vision</a>
-          </li>
-         
-        </ul>                   
-    </div>
-  </div>
-</nav>
-  
   <!-- Facilities Section -->
-  <section id="opd" class="py-5">
+  <section id="section1" class="py-5">
     <div class="container">
       <h2 class="text-left mb-4 section-title">Facilities</h2>
       <p>
-        Sample text for facilities section. This is where details about the facilities of the oah will be shown with details
+        Sample text for facilities section. This is where details about the facilities of the old age home will be shown.
       </p>
     </div>
   </section>
 
-
-    <!-- Gallery Section -->
-<section id="gallery" class="py-5 bg-light">
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-left mb-5 section-title">Gallery</h2>
-  
+
       <div class="gallery-masonry">
 
         <figure class="gallery-item">
-          <img src="oah_shivling.png" alt="shivling">
-          <figcaption>Shivling at Old Age home</figcaption>
+          <img src="images/oah_images/oah_shivling.png" alt="Shivling">
+          <figcaption>Shivling at Old Age Home</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="oah_residents2.png" alt="Resident interacting">
-          <figcaption>Lively atmostphere for Residents</figcaption>
-        </figure>
-  
-        <figure class="gallery-item">
-          <img src="oah_radhaKrishna_moorti.png" alt="Radhakrishna Murthi">
-          <figcaption>Radha krishna murthi in the Old Age Home temple</figcaption>
+          <img src="images/oah_images/oah_residents2.png" alt="Residents interacting">
+          <figcaption>Lively atmosphere for Residents</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="oah_mata_murthi" alt="Mata Murthi">
-          <figcaption>Durga Maa murthi in the Temple</figcaption>
-        </figure>
-  
-        <figure class="gallery-item">
-          <img src="oah_hanuman_murthi.jpeg" alt="Hanuman Murthi">
-          <figcaption>Hanuman murthi in the Temple</figcaption>
+          <img src="images/oah_images/oah_radhaKrishna_moorti.png" alt="Radha Krishna Murti">
+          <figcaption>Radha Krishna Murti in the Old Age Home Temple</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="oah_residents.png" alt="Residents">
+          <img src="images/oah_images/oah_mata_murthi.png" alt="Mata Murti">
+          <figcaption>Durga Maa Murti in the Temple</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/oah_images/oah_hanuman_murthi.jpeg" alt="Hanuman Murti">
+          <figcaption>Hanuman Murti in the Temple</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/oah_images/oah_residents.png" alt="Residents">
           <figcaption>Residents at Old Age Home</figcaption>
         </figure>
-        
+
         <figure class="gallery-item">
-          <img src="oah_office.png" alt="office">
+          <img src="images/oah_images/oah_office.png" alt="Office">
           <figcaption>Old Age Home Office</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="oah_plaque.png" alt="Entrance">
+          <img src="images/oah_images/oah_plaque.png" alt="Entrance Plaque">
           <figcaption>Old Age Home Entrance</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="member_with_manager.png" alt="manager and member">
-          <figcaption>Old age home resident with manager</figcaption>
-        </figure>  
-        
+          <img src="images/oah_images/member_with_manager.png" alt="Resident with manager">
+          <figcaption>Old Age Home Resident with Manager</figcaption>
+        </figure>
+
       </div>
     </div>
   </section>
 
   <!-- Mission & Vision Section -->
   <section id="mission" class="py-5">
-
     <div class="container">
       <h2 class="text-center mb-4 section-title">Mission & Vision</h2>
       <p>
-        Sample text for Mission & Vision. Describe the hospital's goals, philosophy, and
-        commitment to patients and the community.
+        Sample text for Mission & Vision. Describe the old age home's goals, philosophy, and
+        commitment to residents and the community.
       </p>
     </div>
   </section>
 
-  <!-- Donate Section at the Bottom -->
-  <section id="mission" class="py-5">
+  <!-- Donate Section -->
+  <section class="py-5 bg-light">
     <div class="container text-center">
       <p class="lead mb-4">
         Donate here to the trust or directly to the old age home if you would like to support and make an impact.
       </p>
-      <a href="donate.html" class="btn btn-danger btn-lg px-4">
-        Donate Now
-      </a>
+      <a href="donate.html" class="btn btn-danger btn-lg px-4">Donate Now</a>
     </div>
   </section>
-  
-  
-  <!-- FOOTER (copy from index.html) -->
-  <footer class="bg-dark text-light py-4">
-    <div class="container">
-  
-      <div class="row">
-  
-        <!-- Organisation Info -->
-        <div class="col-md-4 mb-3">
-          <h5>Charity Trust</h5>
-          <p class="small">
-            Dedicated to serving humanity through healthcare, education,
-            and compassionate care for the elderly.
-          </p>
-        </div>
-  
-        <!-- Contact Info -->
-        <div class="col-md-4 mb-3">
-          <h6>Contact Us</h6>
-          <p class="small mb-1">📞 Phone: +91 98148 28400</p>
-          <p class="small mb-1">📧 Email: info@charitytrust.org</p>
-        </div>
-  
-        <!-- Social Media -->
-        <div class="col-md-4 mb-3">
-          <h6>Follow Us</h6>
-          <a href="#" class="text-light text-decoration-none d-block">Facebook</a>
-          <a href="#" class="text-light text-decoration-none d-block">Instagram</a>
-          <a href="#" class="text-light text-decoration-none d-block">Twitter</a>
-        </div>
-  
-      </div>
-  
-      <hr class="border-light">
-  
-      <div class="text-center small">
-        © 2026 Charity Trust. All rights reserved.
-      </div>
-  
-    </div>
-  </footer>
 
+  <!-- Footer injected here by navbar-loader.js -->
+  <div id="footer-placeholder"></div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.querySelectorAll('.side-nav .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        document
-          .querySelectorAll('.side-nav .nav-link')
-          .forEach(l => l.classList.remove('active'));
-  
-        link.classList.add('active');
-      });
-    });
-  </script>
+  <script src="js/navbar-loader.js" defer></script>
 </body>
-
 </html>

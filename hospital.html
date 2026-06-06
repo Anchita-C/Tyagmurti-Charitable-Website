@@ -2,68 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hospital | Charity Trust</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital | Tyagmurti Trust</title>
 
-  <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <style>
-        
-        /* FIX FOR SECONDARY NAVBAR */
-        body {
-            padding-top: 140px; /* Space for both navbars */
-        }
-        
-        /* Make secondary navbar fixed */
-        #secondaryNavbar {
-            position: fixed;
-            top: 56px; /* Height of main navbar */
-            width: 100%;
-            z-index: 1029;
-            background-color: white; /* Ensure background is visible */
-        }
-        
-        /* Fix anchor link scrolling */
-        section {
-            scroll-margin-top: 140px;
-        }
-    </style>
-    <script>
-        // Adjust spacing dynamically
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainNavbar = document.querySelector('.navbar.fixed-top');
-            const secondaryNavbar = document.getElementById('secondaryNavbar');
-            
-            if (mainNavbar && secondaryNavbar) {
-                // Update secondary navbar position based on main navbar height
-                function updateNavbarPositions() {
-                    const mainHeight = mainNavbar.offsetHeight;
-                    secondaryNavbar.style.top = mainHeight + 'px';
-                    
-                    // Update body padding
-                    const totalHeight = mainHeight + secondaryNavbar.offsetHeight;
-                    document.body.style.paddingTop = totalHeight + 'px';
-                    
-                    // Update scroll margin for all sections
-                    document.querySelectorAll('section').forEach(section => {
-                        section.style.scrollMarginTop = totalHeight + 'px';
-                    });
-                }
-                
-                // Run on load and resize
-                updateNavbarPositions();
-                window.addEventListener('resize', updateNavbarPositions);
-            }
-        });
-    </script>
-
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body>
+<!--
+  data-page        → tells navbar-loader.js which primary nav link to mark active
+  data-secondary-navbar → path to the secondary navbar partial for this page
+-->
+<body data-page="hospital" data-secondary-navbar="partials/navbar-secondary-hospital.html">
 
-<!-- Hospital Heading Section -->
-<section class="hospital-heading">
+  <!-- Page heading banner (shown before navbars so it sits under them naturally) -->
+  <section class="hospital-heading">
     <div class="heading-overlay">
       <div class="container">
         <h1 class="hospital-name">Tyagmurti Goswami Ganesh Dutt Missionary Hospital</h1>
@@ -71,178 +24,75 @@
       </div>
     </div>
   </section>
-  
 
-  <!-- NAVBAR -->
-  <nav id="primaryNavbar"
-     class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
-  <div class="container">
+  <!-- Primary navbar injected here by navbar-loader.js -->
+  <div id="primary-navbar-placeholder"></div>
 
-    <!-- Organisation Name -->
-    <a class="navbar-brand fw-bold" href="index.html" style="color: rgb(188, 9, 9);">
-      TYAGMURTI TRUST
-    </a>
+  <!-- Secondary navbar injected here by navbar-loader.js -->
+  <div id="secondary-navbar-placeholder"></div>
 
-    <!-- Mobile toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar content -->
-    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-
-      <ul class="navbar-nav flex-grow-1 justify-content-evenly text-center">
-        <li class="nav-item">
-          <a class="nav-link" href="about.html"
-             style="color: rgb(188, 9, 9)">
-            About Us
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="hospital.html" style="color: rgb(188, 9, 9)">Hospital</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="old-age-home.html"
-             style="color: rgb(188, 9, 9);">
-            Old Age Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="school.html"
-             style="color: rgb(188, 9, 9);">
-            School
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html"
-             style="color: rgb(188, 9, 9);">
-            Contact Us
-          </a>
-        </li>
-      </ul>
-
-      <!-- Donate Button -->
-      <a href="donate.html" class="btn btn-danger btn-lg ms-lg-3 px-4">
-        Donate
-      </a>
-
-    </div>
-
-  </div>
-</nav>
-
-
-<!-- Secondary Navbar -->
-<nav id="secondaryNavbar" class="navbar side-nav navbar-expand-lg shadow-sm">
-    <div class="container">
-  
-      <!-- Brand -->
-      <a class="navbar-brand me-5" href="#">HOSPITAL</a>
-  
-      <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#hospitalNavbar" aria-controls="hospitalNavbar"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="hospitalNavbar">    
-        <ul class="navbar-nav mb-2 mb-lg-0 text-center">
-            <li class="nav-item mx-lg-3">
-              <a class="nav-link" href="#opd">OPD</a>
-            </li>
-            <li class="nav-item mx-lg-3">
-              <a class="nav-link" href="#departments">Departments</a>
-            </li>
-            <!--
-            <li class="nav-item mx-lg-3">
-              <a class="nav-link" href="#doctors">Our Doctors</a>
-            </li>
-            -->
-            <li class="nav-item mx-lg-3">
-                <a class="nav-link" href="#gallery">Gallery</a>
-              </li>
-            <li class="nav-item mx-lg-3">
-              <a class="nav-link" href="#mission">Mission & Vision</a>
-            </li>
-           
-          </ul>                   
-      </div>
-    </div>
-  </nav>
-  
   <!-- OPD Section -->
   <section id="opd" class="py-5">
     <div class="container">
       <h2 class="text-left mb-4 section-title">OPD</h2>
       <p>
-        Sample text for OPD section. This is where details about the hospital’s outpatient
+        Sample text for OPD section. This is where details about the hospital's outpatient
         services, timings, and procedures would go.
       </p>
     </div>
   </section>
 
-   <!-- Departments Section -->
-<section id="departments" class="py-5 bg-light">
+  <!-- Departments Section -->
+  <section id="departments" class="py-5 bg-light">
     <div class="container">
-  
       <h2 class="text-left mb-5 section-title">Departments</h2>
-  
+
       <div class="department-list">
-  
+
         <div class="department-item pb-4 mb-4 border-bottom">
           <h5 class="mb-2">Dentistry</h5>
           <p class="mb-0">
-            The Dentistry Department of our charitable institution is well-equipped to provide comprehensive 
-            oral healthcare at highly affordable costs. The department houses five modern dental chairs and offers 
-            a wide range of services including tooth removal, fillings, root canal treatments, and other routine 
+            The Dentistry Department of our charitable institution is well-equipped to provide comprehensive
+            oral healthcare at highly affordable costs. The department houses five modern dental chairs and offers
+            a wide range of services including tooth removal, fillings, root canal treatments, and other routine
             dental procedures. Equipped with top-quality, advanced dental equipment, the department ensures safe,
-             hygienic, and effective treatment for all patients. Our services are delivered by well-trained and 
-             experienced medical staff who are committed to providing compassionate care while maintaining the highest
-             standards of dental practice.
+            hygienic, and effective treatment for all patients. Our services are delivered by well-trained and
+            experienced medical staff who are committed to providing compassionate care while maintaining the highest
+            standards of dental practice.
           </p>
         </div>
-  
+
         <div class="department-item pb-4 mb-4 border-bottom">
           <h5 class="mb-2">Orthopedics</h5>
           <p class="mb-0">
-            The Orthopaedic Department of the hospital provides reliable and affordable care for patients with bone 
-            and joint conditions. The department offers orthopaedic check-ups, fracture diagnosis, and treatment, 
-            along with evaluation and management of common musculoskeletal problems. Supported by appropriate diagnostic 
-            facilities and experienced medical staff, the department is committed to ensuring timely care, proper healing, 
-            and improved mobility for patients, in line with the institution’s charitable mission.
+            The Orthopaedic Department of the hospital provides reliable and affordable care for patients with bone
+            and joint conditions. The department offers orthopaedic check-ups, fracture diagnosis, and treatment,
+            along with evaluation and management of common musculoskeletal problems. Supported by appropriate diagnostic
+            facilities and experienced medical staff, the department is committed to ensuring timely care, proper healing,
+            and improved mobility for patients, in line with the institution's charitable mission.
           </p>
         </div>
-  
+
         <div class="department-item pb-4 mb-4 border-bottom">
           <h5 class="mb-2">Cardiology</h5>
-          <p class="mb-0">
-            Heart and cardiovascular system diagnosis and treatment.
-          </p>
+          <p class="mb-0">Heart and cardiovascular system diagnosis and treatment.</p>
         </div>
-  
+
         <div class="department-item pb-4 mb-4 border-bottom">
           <h5 class="mb-2">Neurology</h5>
-          <p class="mb-0">
-            Special care for nervous system disorders and brain health.
-          </p>
+          <p class="mb-0">Special care for nervous system disorders and brain health.</p>
         </div>
-  
+
         <div class="department-item">
           <h5 class="mb-2">General Medicine</h5>
-          <p class="mb-0">
-            Comprehensive care for various adult illnesses and conditions.
-          </p>
+          <p class="mb-0">Comprehensive care for various adult illnesses and conditions.</p>
         </div>
-  
+
       </div>
-  
     </div>
   </section>
-  
 
-  <!--Doctors Section-->
+  <!-- Doctors Section -->
   <section id="doctors" class="py-5">
     <div class="container">
       <h2 class="text-left mb-4 section-title">Our Doctors</h2>
@@ -307,7 +157,7 @@
             </div>
           </div>
         </div>
-        <!--here are the next 5 doctor cards-->
+
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="card h-100 text-center shadow-sm">
             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Dr. F">
@@ -372,63 +222,59 @@
     </div>
   </section>
 
-
-
-
-<!-- Gallery Section -->
-<section id="gallery" class="py-5 bg-light">
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-left mb-5 section-title">Gallery</h2>
-  
+
       <div class="gallery-masonry">
-  
+
         <figure class="gallery-item">
-          <img src="images/hospital_images/radiography_room.png" alt="radiography_room">
+          <img src="images/hospital_images/radiography_room.png" alt="Radiography Room">
           <figcaption>Radiography/Imaging Room</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="images/hospital_images/digital_xray_facility.png" alt="digital_xray_facility">
+          <img src="images/hospital_images/digital_xray_facility.png" alt="Digital X-ray Facility">
           <figcaption>Digital X-ray Facility</figcaption>
-        </figure>
-  
-        <figure class="gallery-item">
-          <img src="images/hospital_images/dental_room.png" alt="dental_room">
-          <figcaption>Dental Room</figcaption>
-        </figure>
-  
-        <figure class="gallery-item">
-          <img src="images/hospital_images/clinical_lab.png" alt="clinical_lab">
-          <figcaption>Clinical Laboratory</figcaption>
-        </figure>
-  
-        <figure class="gallery-item">
-          <img src="images/hospital_images/blood_test.png" alt="blood_test">
-          <figcaption>Blood test in Laboratory</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="images/hospital_images/lab.png" alt="lab">
+          <img src="images/hospital_images/dental_room.png" alt="Dental Room">
+          <figcaption>Dental Room</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/hospital_images/clinical_lab.png" alt="Clinical Laboratory">
+          <figcaption>Clinical Laboratory</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/hospital_images/blood_test.png" alt="Blood Test">
+          <figcaption>Blood Test in Laboratory</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/hospital_images/lab.png" alt="Lab">
           <figcaption>Inside Lab</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="images/hospital_images/dentistry_equipment.png" alt="dentistry_equipment">
+          <img src="images/hospital_images/dentistry_equipment.png" alt="Dentistry Equipment">
           <figcaption>Dentistry Equipment</figcaption>
         </figure>
 
         <figure class="gallery-item">
-          <img src="images/hospital_images/dentistry_equipment.png" alt="dentistry_equipment">
+          <img src="images/hospital_images/hospital_outside.png" alt="Outside of Hospital">
           <figcaption>Outside of Hospital</figcaption>
         </figure>
-        
+
       </div>
     </div>
   </section>
 
   <!-- Mission & Vision Section -->
   <section id="mission" class="py-5">
-
     <div class="container">
       <h2 class="text-center mb-4 section-title">Mission & Vision</h2>
       <p>
@@ -438,75 +284,20 @@
     </div>
   </section>
 
-  <!-- Donate Section at the Bottom -->
-  <section id="mission" class="py-5">
+  <!-- Donate Section -->
+  <section class="py-5 bg-light">
     <div class="container text-center">
       <p class="lead mb-4">
         Donate here to the trust or directly to the hospital if you would like to support and make an impact.
       </p>
-      <a href="donate.html" class="btn btn-danger btn-lg px-4">
-        Donate Now
-      </a>
+      <a href="donate.html" class="btn btn-danger btn-lg px-4">Donate Now</a>
     </div>
   </section>
-  
-  
-  <!-- FOOTER (copy from index.html) -->
-  <footer class="bg-dark text-light py-4">
-    <div class="container">
-  
-      <div class="row">
-  
-        <!-- Organisation Info -->
-        <div class="col-md-4 mb-3">
-          <h5>Charity Trust</h5>
-          <p class="small">
-            Dedicated to serving humanity through healthcare, education,
-            and compassionate care for the elderly.
-          </p>
-        </div>
-  
-        <!-- Contact Info -->
-        <div class="col-md-4 mb-3">
-          <h6>Contact Us</h6>
-          <p class="small mb-1">📞 Phone: +91 98148 28400</p>
-          <p class="small mb-1">📧 Email: info@charitytrust.org</p>
-        </div>
-  
-        <!-- Social Media -->
-        <div class="col-md-4 mb-3">
-          <h6>Follow Us</h6>
-          <a href="#" class="text-light text-decoration-none d-block">Facebook</a>
-          <a href="#" class="text-light text-decoration-none d-block">Instagram</a>
-          <a href="#" class="text-light text-decoration-none d-block">Twitter</a>
-        </div>
-  
-      </div>
-  
-      <hr class="border-light">
-  
-      <div class="text-center small">
-        © 2026 Charity Trust. All rights reserved.
-      </div>
-  
-    </div>
-  </footer>
 
+  <!-- Footer injected here by navbar-loader.js -->
+  <div id="footer-placeholder"></div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    document.querySelectorAll('.side-nav .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        document
-          .querySelectorAll('.side-nav .nav-link')
-          .forEach(l => l.classList.remove('active'));
-  
-        link.classList.add('active');
-      });
-    });
-  </script>
-  
+  <script src="js/navbar-loader.js" defer></script>
 </body>
 </html>

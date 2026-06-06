@@ -1,217 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/custom.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charitable Organisation | Tyagmurti Trust</title>
 
-    <title>Charitable Organisation</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link 
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-      rel="stylesheet"
-    >
-
-    <!-- Custom CSS (for later) -->
-    <link rel="stylesheet" href="css/custom.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
-     <!-- NAVBAR (copy from index.html) -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+
+<body data-page="index">
+
+  <!-- Primary navbar injected here by navbar-loader.js -->
+  <div id="primary-navbar-placeholder"></div>
+
+  <!-- Home intro -->
+  <section class="py-5">
     <div class="container">
-  
-      <!-- Organisation Name -->
-      <a class="navbar-brand fw-bold" href="index.html" style="color: rgb(188, 9, 9);">
-        TYAGMURTI TRUST
-      </a>
-  
-      <!-- Mobile toggle -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Navbar content -->
-      <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-  
-        <ul class="navbar-nav flex-grow-1 justify-content-evenly text-center">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"
-               style="color: rgb(188, 9, 9)">
-              About Us
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="hospital.html"
-               style="color: rgb(188, 9, 9);">
-              Hospital
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="old-age-home.html"
-               style="color: rgb(188, 9, 9);">
-              Old Age Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="school.html"
-               style="color: rgb(188, 9, 9);">
-              School
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"
-               style="color: rgb(188, 9, 9);">
-              Contact Us
-            </a>
-          </li>
-        </ul>
-  
-        <!-- Donate Button -->
-        <a href="donate.html" class="btn btn-danger btn-lg ms-lg-3 px-4">
-          Donate
-        </a>
-  
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mb-3">Serving Humanity with Compassion</h2>
+          <p class="lead">
+            Our charitable organisation is dedicated to improving lives through
+            accessible healthcare, compassionate care for the elderly, and
+            quality education for children. Through our hospital, old age home,
+            and school, we strive to create a supportive and dignified environment
+            for those in need.
+          </p>
+        </div>
       </div>
-  
     </div>
-  </nav>
+  </section>
 
-      
-    <!--home page intro-->
-    <section class="py-5">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-      
-              <h2 class="mb-3">Serving Humanity with Compassion</h2>
-      
-              <p class="lead">
-                Our charitable organisation is dedicated to improving lives through
-                accessible healthcare, compassionate care for the elderly, and
-                quality education for children. Through our hospital, old age home,
-                and school, we strive to create a supportive and dignified environment
-                for those in need.
-              </p>
-      
+  <!-- Service cards -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center g-4">
+
+        <!-- Hospital Card -->
+        <div class="col-lg-4 col-md-6">
+          <a href="hospital.html" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
+              <img src="images/home_images/hospital_card_img.png" class="card-img-top" alt="Hospital">
+              <div class="card-body text-center">
+                <h5 class="card-title">Hospital</h5>
+                <p class="card-text">
+                  Providing affordable and compassionate healthcare services
+                  to individuals and families in need.
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-      </section>
-    
-    <!-- home page cards-->
-    <section class="py-5 bg-light">
-        <div class="container">
-      
-          <div class="row justify-content-center g-4">
-      
-            <!-- Hospital Card -->
-            <div class="col-lg-4 col-md-6">
-              <a href="hospital.html" class="text-decoration-none text-dark">
-                <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
-                  <img src="images/home_images/hospital_card_img.png" class="card-img-top" alt="Hospital">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hospital</h5>
-                    <p class="card-text">
-                      Providing affordable and compassionate healthcare services
-                      to individuals and families in need.
-                    </p>
-                  </div>
-                </div>
-              </a>
+
+        <!-- Old Age Home Card -->
+        <div class="col-lg-4 col-md-6">
+          <a href="old-age-home.html" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
+              <img src="images/home_images/oah_card_img.png" class="card-img-top" alt="Old Age Home">
+              <div class="card-body text-center">
+                <h5 class="card-title">Old Age Home</h5>
+                <p class="card-text">
+                  Offering care, comfort, and dignity to senior citizens
+                  in a safe and supportive environment.
+                </p>
+              </div>
             </div>
-      
-            <!-- Old Age Home Card -->
-            <div class="col-lg-4 col-md-6">
-              <a href="old-age-home.html" class="text-decoration-none text-dark">
-                <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
-                  <img src="images/home_images/oah_card_img.png" class="card-img-top" alt="Old Age Home">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Old Age Home</h5>
-                    <p class="card-text">
-                      Offering care, comfort, and dignity to senior citizens
-                      in a safe and supportive environment.
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-      
-            <!-- School Card -->
-            <div class="col-lg-4 col-md-6">
-              <a href="school.html" class="text-decoration-none text-dark">
-                <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
-                  <img src="images/home_images/school_card_img.png" class="card-img-top" alt="School">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">School</h5>
-                    <p class="card-text">
-                      Empowering children through quality education and
-                      holistic development for a better future.
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-      
-          </div>
-      
+          </a>
         </div>
-      </section>
 
-    <!--footer-->
-    <footer class="bg-dark text-light py-4">
-        <div class="container">
-      
-          <div class="row">
-      
-            <!-- Organisation Info -->
-            <div class="col-md-4 mb-3">
-              <h5>Charity Trust</h5>
-              <p class="small">
-                Dedicated to serving humanity through healthcare, education,
-                and compassionate care for the elderly.
-              </p>
+        <!-- School Card -->
+        <div class="col-lg-4 col-md-6">
+          <a href="school.html" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
+              <img src="images/home_images/school_card_img.png" class="card-img-top" alt="School">
+              <div class="card-body text-center">
+                <h5 class="card-title">School</h5>
+                <p class="card-text">
+                  Empowering children through quality education and
+                  holistic development for a better future.
+                </p>
+              </div>
             </div>
-      
-            <!-- Contact Info -->
-            <div class="col-md-4 mb-3">
-              <h6>Contact Us</h6>
-              <p class="small mb-1">📞 Phone: +91 98765 43210</p>
-              <p class="small mb-1">📧 Email: info@charitytrust.org</p>
-            </div>
-      
-            <!-- Social Media -->
-            <div class="col-md-4 mb-3">
-              <h6>Follow Us</h6>
-              <a href="#" class="text-light text-decoration-none d-block">Facebook</a>
-              <a href="#" class="text-light text-decoration-none d-block">Instagram</a>
-              <a href="#" class="text-light text-decoration-none d-block">Twitter</a>
-            </div>
-      
-          </div>
-      
-          <hr class="border-light">
-      
-          <div class="text-center small">
-            © 2026 Charity Trust. All rights reserved.
-          </div>
-      
+          </a>
         </div>
-      </footer>
-      
-      
-      
 
-    <!-- Content will go here -->
+      </div>
+    </div>
+  </section>
 
-    <!-- Bootstrap JS CDN -->
-    <script 
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    </script>
+  <!-- Footer injected here by navbar-loader.js -->
+  <div id="footer-placeholder"></div>
 
-    <!-- Custom JS (optional) -->
-    <script src="js/script.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/navbar-loader.js" defer></script>
 </body>
 </html>
-
