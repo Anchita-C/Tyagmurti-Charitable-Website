@@ -6,220 +6,586 @@
   <title>Charitable Organisation | Tyagmurti Trust</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
+
+  <style>
+    /* ── Page-specific overrides (index only) ── */
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: #fafaf8;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a0a0a 0%, #3d1010 45%, #6b1a1a 100%);
+      min-height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    /* Subtle radial glow behind text */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(188,9,9,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Decorative horizontal rule lines */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgb(188,9,9), transparent);
+    }
+
+    .hero-eyebrow {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+
+    .hero-title span {
+      color: rgb(230, 80, 80);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: rgb(188,9,9);
+      color: #fff;
+      padding: 0.85rem 2.5rem;
+      border-radius: 2px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: rgb(210, 20, 20);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.35);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 0.9; transform: scaleY(1.15); }
+    }
+
+    /* ── SERVICES STRIP ── */
+    .services-strip {
+      background: #fff;
+      border-bottom: 1px solid #e8e8e4;
+    }
+
+    .service-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .service-card {
+      padding: 1rem 2rem;
+      border-right: 1px solid #e8e8e4;
+      transition: background 0.2s;
+      height: 100%;
+    }
+
+    .service-card:last-child {
+      border-right: none;
+    }
+
+    .service-card:hover {
+      background: #fdf5f5;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fdf0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      font-size: 1.4rem;
+    }
+
+    .service-card h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .service-card .arrow-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgb(188,9,9);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: linear-gradient(90deg, #1a0a0a, #3d1010);
+      padding: 2.5rem 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.3rem;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      align-self: stretch;
+    }
+
+    /* ── HISTORY SECTION ── */
+    .history-section {
+      background: #fafaf8;
+      padding: 5rem 0 4rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgb(188,9,9);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .history-intro {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid rgb(188,9,9);
+      padding-left: 1.25rem;
+    }
+
+    .history-body p {
+      font-size: 0.97rem;
+      color: #555;
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .history-body h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .blockquote-pull {
+      border-left: none;
+      padding: 1.5rem 2rem;
+      background: #fff;
+      border-top: 2px solid rgb(188,9,9);
+      margin: 1.5rem 0;
+    }
+
+    .blockquote-pull p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem !important;
+      font-style: italic;
+      color: #333 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Chairman cards */
+    .chairman-card {
+      background: #fff;
+      border: 1px solid #ece9e4;
+      border-radius: 4px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+
+    .chairman-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #f0e0e0;
+      margin-bottom: 0.75rem;
+    }
+
+    .chairman-card .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .chairman-card .role {
+      font-size: 0.78rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    .chairman-divider {
+      height: 1px;
+      background: #ece9e4;
+      margin: 1.5rem 0;
+    }
+
+    .est-badge {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      color: rgb(188,9,9);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── DONATE BANNER ── */
+    .donate-banner {
+      background: rgb(188,9,9);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .donate-banner h3 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .donate-banner p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-donate-white {
+      background: #fff;
+      color: rgb(188,9,9);
+      font-weight: 700;
+      padding: 0.85rem 2.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-donate-white:hover {
+      color: rgb(188,9,9);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .service-card { border-right: none; border-bottom: 1px solid #e8e8e4; }
+      .stat-divider { display: none; }
+      .chairman-card { position: static; margin-bottom: 2rem; }
+    }
+  </style>
 </head>
 
 <body data-page="index">
 
-  <!-- Primary navbar injected here by navbar-loader.js -->
+  <!-- Primary navbar injected by navbar-loader.js -->
   <div id="primary-navbar-placeholder"></div>
 
-  <!-- Home intro -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mb-3">Serving Humanity with Compassion</h2>
-          <p class="lead">
-            Our charitable organisation is dedicated to improving lives through
-            accessible healthcare, compassionate care for the elderly, and
-            quality education for children. Through our hospital, old age home,
-            and school, we strive to create a supportive and dignified environment
-            for those in need.
-          </p>
-        </div>
-      </div>
-    </div>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <p class="hero-eyebrow">Est. 1985 · Jalandhar, Punjab</p>
+    <h1 class="hero-title">Serving Humanity<br>with <span>Compassion</span></h1>
+    <p class="hero-subtitle">
+      Through our hospital, old age home, and school, we provide healthcare,
+      dignity, and education to those who need it most — at little or no cost.
+    </p>
   </section>
 
-  <!-- Service cards -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row justify-content-center g-4">
+  <!-- ── SERVICES STRIP ── -->
+  <div class="services-strip">
+    <div class="container-fluid px-0">
+      <div class="row g-0">
 
-        <!-- Hospital Card -->
-        <div class="col-lg-4 col-md-6">
-          <a href="hospital.html" class="text-decoration-none text-dark">
-            <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
-              <img src="images/home_images/hospital_card_img.png" class="card-img-top" alt="Hospital">
-              <div class="card-body text-center">
-                <h5 class="card-title">Hospital</h5>
-                <p class="card-text">
-                  Providing affordable and compassionate healthcare services
-                  to individuals and families in need.
-                </p>
-              </div>
+        <div class="col-md-4">
+          <a href="hospital.html" class="service-card-link">
+            <div class="service-card">
+              <div class="service-icon">🏥</div>
+              <h5>Hospital</h5>
+              <p>Affordable, compassionate healthcare for individuals and families in need.</p>
+              <span class="arrow-link">Learn more →</span>
             </div>
           </a>
         </div>
 
-        <!-- Old Age Home Card -->
-        <div class="col-lg-4 col-md-6">
-          <a href="old-age-home.html" class="text-decoration-none text-dark">
-            <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
-              <img src="images/home_images/oah_card_img.png" class="card-img-top" alt="Old Age Home">
-              <div class="card-body text-center">
-                <h5 class="card-title">Old Age Home</h5>
-                <p class="card-text">
-                  Offering care, comfort, and dignity to senior citizens
-                  in a safe and supportive environment.
-                </p>
-              </div>
+        <div class="col-md-4">
+          <a href="old-age-home.html" class="service-card-link">
+            <div class="service-card">
+              <div class="service-icon">🏡</div>
+              <h5>Old Age Home</h5>
+              <p>Care, comfort, and dignity for senior citizens in a safe environment.</p>
+              <span class="arrow-link">Learn more →</span>
             </div>
           </a>
         </div>
 
-        <!-- School Card -->
-        <div class="col-lg-4 col-md-6">
-          <a href="school.html" class="text-decoration-none text-dark">
-            <div class="card h-100 shadow-sm mx-auto" style="max-width: 22rem;">
-              <img src="images/home_images/school_card_img.png" class="card-img-top" alt="School">
-              <div class="card-body text-center">
-                <h5 class="card-title">School</h5>
-                <p class="card-text">
-                  Empowering children through quality education and
-                  holistic development for a better future.
-                </p>
-              </div>
+        <div class="col-md-4">
+          <a href="school.html" class="service-card-link">
+            <div class="service-card">
+              <div class="service-icon">📚</div>
+              <h5>School</h5>
+              <p>Quality education and holistic development for children's better futures.</p>
+              <span class="arrow-link">Learn more →</span>
             </div>
           </a>
         </div>
 
       </div>
     </div>
-  </section>
-<section id="about" class="py-5">
-  <div class="container">
-
-    <div class="row justify-content-center mb-5">
-
-      <div class="col-md-3 text-center mb-4">
-        <img
-          src="images/aboutUs_images/chairman1.png"
-          alt="Shri Vishwanath Acharya Ji"
-          class="img-fluid rounded shadow mb-3"
-          style="max-width:150px;"
-        >
-        <p class="text-muted">Shri Vishwanath Acharya Ji</p>
-      </div>
-
-      <div class="col-md-3 text-center mb-4">
-        <img
-          src="images/aboutUs_images/chairman2.png"
-          alt="Dr. Vir Bhushan Acharya"
-          class="img-fluid rounded shadow mb-3"
-          style="max-width:150px;"
-        >
-        <p class="text-muted">Dr. Vir Bhushan Acharya</p>
-      </div>
-
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-
-        <h2 class="mb-4 text-center">About Us</h2>
-
-        <p>
-          Our institution was established in 1985 with a single, powerful vision:
-          to serve the poor and needy at extremely subsidised rates and to uplift
-          society through collective participation. The foundation of this trust
-          was laid under the guidance of the revered (Poojniya)
-          Shri Vishwanath Acharya Ji (11 November 1920 – 1976), a saintly soul
-          whose entire life was devoted to selfless service.
-          The trust was formally established by Sri Satsang Sabha,
-          Suraj Ganj (Registered Mandir).
-        </p>
-
-        <h5>Our Founder</h5>
-
-        <p>
-          Born on 11/11/1920 in Himachal Pradesh, Shri Vishwanath Acharya Ji
-          received his primary education there and later moved to Firozpur for
-          higher studies. After completing his education, he travelled extensively
-          across almost every part of India and abroad. These journeys deepened
-          his understanding of society and strengthened his lifelong mission:
-          serving humanity without expectation of financial gain.
-        </p>
-
-        <p>
-          For him, money was never a criterion. He believed that true service
-          lies in purity of intent and dedication to the welfare of others.
-          He was known for his pious nature, dedication, and simplicity,
-          inspiring countless people to walk the path of service.
-        </p>
-
-        <h5>A Movement Built by the People</h5>
-
-        <p>
-          In its early days, the institution began with very small donations—
-          sometimes as little as Re. 1.
-        </p>
-
-        <p class="text-center">
-          <strong>
-            <em>
-              "Built by people, strengthened by participation,
-              and rooted in the society it serves."
-            </em>
-          </strong>
-        </p>
-
-        <p>
-          Over time, this belief bore fruit. While many contributed modestly,
-          others donated generously, helping the institution grow while staying
-          rooted in its original values.
-        </p>
-
-        <h5>Continuity of Leadership and Service</h5>
-
-        <p>
-          During the lifetime of Shri Vishwanath Acharya Ji, the responsibilities
-          of the institution were entrusted to Punshi Shri Satnam Das Ji, who
-          served diligently from 1996 to 2006.
-        </p>
-
-        <p>
-          After his passing, the trust unanimously elected Dr. Vir Bhushan
-          Acharya (MSE, MPhil, PhD) as Chairman of the Trust.
-        </p>
-
-        <p>
-          Dr. Acharya retired as Vice Principal and Head of the Post Graduate
-          Department of Physics at DAV College, Jalandhar. He has also served
-          as Principal and Director of educational institutions, bringing
-          extensive experience in education, leadership, and administration.
-        </p>
-
-        <p>
-          Since assuming responsibility for the trust, Dr. Acharya has continued
-          its mission with integrity, transparency, and compassion. He is strongly
-          supported by Mrs. Kiran Acharya, who actively contributes to extending
-          the trust’s services for the welfare of society.
-        </p>
-
-        <h5>Guidance, Blessings, and Support</h5>
-
-        <p>
-          With the blessings and support of Shri Sheetal Vij Ji, Chief Editor,
-          Dainik Savera and Patron of the Institution, the trust continues to
-          progress steadily and meaningfully.
-        </p>
-
-        <p>
-          The trust remains proudly based in Jalandhar, Punjab, India and
-          continues to uphold its founding ideals of selfless service,
-          collective responsibility, and compassion for humanity.
-        </p>
-
-      </div>
-    </div>
-
   </div>
-</section>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-stretch flex-wrap gap-4">
+        <div class="stat-item">
+          <div class="stat-number">1985</div>
+          <div class="stat-label">Year Founded</div>
+        </div>
+        <div class="stat-divider d-none d-md-block"></div>
+        <div class="stat-item">
+          <div class="stat-number">40+</div>
+          <div class="stat-label">Years of Service</div>
+        </div>
+        <div class="stat-divider d-none d-md-block"></div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Institutions</div>
+        </div>
+        <div class="stat-divider d-none d-md-block"></div>
+        <div class="stat-item">
+          <div class="stat-number">Re.1</div>
+          <div class="stat-label">Where It Began</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OUR HISTORY ── -->
+  <section id="history" class="history-section">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Left: sticky chairman cards -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="chairman-card">
+            <img src="images/aboutUs_images/chairman1.png" alt="Shri Vishwanath Acharya Ji">
+            <p class="name">Shri Vishwanath Acharya Ji</p>
+            <p class="role">Founder</p>
+            <div class="chairman-divider"></div>
+            <img src="images/aboutUs_images/chairman2.png" alt="Dr. Vir Bhushan Acharya">
+            <p class="name">Dr. Vir Bhushan Acharya</p>
+            <p class="role">Chairman</p>
+            <div class="chairman-divider"></div>
+            <p class="est-badge">Est. 1985</p>
+          </div>
+        </div>
+
+        <!-- Right: history content -->
+        <div class="col-lg-9">
+          <p class="section-label">Our Story</p>
+          <h2 class="section-heading">Our History</h2>
+
+          <!-- Intro visible above the fold — prompts scrolling -->
+          <p class="history-intro">
+            Our institution was established in 1985 with a single, powerful vision:
+            to serve the poor and needy at extremely subsidised rates and to uplift
+            society through collective participation.
+          </p>
+
+          <div class="history-body">
+
+            <p>
+              The foundation of this trust was laid under the guidance of the revered
+              (Poojniya) Shri Vishwanath Acharya Ji (11 November 1920 – 1976), a saintly
+              soul whose entire life was devoted to selfless service. The trust was formally
+              established by Sri Satsang Sabha, Suraj Ganj (Registered Mandir).
+            </p>
+
+            <h5>Our Founder</h5>
+            <p>
+              Born on 11/11/1920 in Himachal Pradesh, Shri Vishwanath Acharya Ji received
+              his primary education there and later moved to Firozpur for higher studies.
+              After completing his education, he travelled extensively across almost every
+              part of India and abroad. These journeys deepened his understanding of society
+              and strengthened his lifelong mission: serving humanity without expectation of
+              financial gain.
+            </p>
+            <p>
+              For him, money was never a criterion. He believed that true service lies in
+              purity of intent and dedication to the welfare of others. He was known for his
+              pious nature, dedication, and simplicity, inspiring countless people to walk
+              the path of service.
+            </p>
+
+            <h5>A Movement Built by the People</h5>
+            <p>
+              In its early days, the institution began with very small donations —
+              sometimes as little as Re. 1. The philosophy was simple yet profound:
+            </p>
+
+            <div class="blockquote-pull">
+              <p>"Built by people, strengthened by participation,
+              and rooted in the society it serves."</p>
+            </div>
+
+            <p>
+              Over time, this belief bore fruit. While many contributed modestly, others
+              donated generously — even to the tune of several lakhs — helping the
+              institution grow while staying rooted in its original values.
+            </p>
+
+            <h5>Continuity of Leadership and Service</h5>
+            <p>
+              During the lifetime of Shri Vishwanath Acharya Ji, the responsibilities of
+              the institution were entrusted to Punshi Shri Satnam Das Ji, who served
+              diligently from 1996 to 2006. After his passing, the trust unanimously elected
+              Dr. Vir Bhushan Acharya (MSE, MPhil, PhD) as Chairman of the Trust.
+            </p>
+            <p>
+              Dr. Acharya retired as Vice Principal and Head of the Post Graduate Department
+              of Physics at DAV College, Jalandhar. He has also served as Principal and
+              Director of educational institutions, bringing extensive experience in
+              education, leadership, and administration.
+            </p>
+            <p>
+              Since assuming responsibility for the trust, Dr. Acharya has continued its
+              mission with integrity, transparency, and compassion. He is strongly supported
+              by Mrs. Kiran Acharya, who actively contributes to extending the trust's
+              services for the welfare of society.
+            </p>
+
+            <h5>Guidance, Blessings, and Support</h5>
+            <p>
+              With the blessings and support of Shri Sheetal Vij Ji, Chief Editor, Dainik
+              Savera and Patron of the Institution, the trust continues to progress steadily
+              and meaningfully.
+            </p>
+            <p>
+              The trust remains proudly based in Jalandhar, Punjab, India and continues to
+              uphold its founding ideals of selfless service, collective responsibility,
+              and compassion for humanity.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
-  <!-- Footer injected here by navbar-loader.js -->
+  <!-- Footer injected by navbar-loader.js -->
   <div id="footer-placeholder"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
